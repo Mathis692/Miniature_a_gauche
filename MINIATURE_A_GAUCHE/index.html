@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Miniature YouTube</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="sketch.js" defer></script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="controls">
+            <h1>Miniature À GAUCHE</h1>
+            <input type="file" id="imageUpload" accept="image/*">
+
+
+            <input type="text" id="subtitleInput" placeholder="TITRE">
+            <label>Position</label>
+            <input type="range" id="subTextYSlider" min="100" max="1000" value="800">
+            <label>Taille</label>
+            <input type="range" id="subTextSizeSlider" min="50" max="300" value="130">
+
+            <input type="text" id="titleInput" placeholder="SOUS TITRE">
+            <label>Taille</label>
+            <input type="range" id="textSizeSlider" min="50" max="300" value="170">
+            <label>Position</label>
+            <input type="range" id="textYSlider" min="100" max="1000" value="940">
+            <button id="exportButton">Exporter l'image</button>
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="canvas-container"></div>
+    </div>
+</body>
+</html>
