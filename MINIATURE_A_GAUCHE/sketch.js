@@ -8,9 +8,11 @@ let textSizeSub = 130;
 let textX = 960;
 let textY = 940;
 let subTextY = 800;
+let gothamFont;
 
 function preload() {
-    logo = loadImage("logo.png"); // Assurez-vous d'avoir un logo disponible
+    gothamFont = loadFont("fonts/Gotham-Black.otf");  // Vérifie que ce fichier existe
+    logo = loadImage("logo.png"); 
 }
 
 function setup() {
@@ -44,6 +46,10 @@ function setup() {
     subTextYSlider.addEventListener("input", (e) => {
         subTextY = parseInt(e.target.value);
     });
+
+    document.getElementById("exportButton").addEventListener("click", () => {
+        saveCanvas("miniature", "jpg");
+    });
 }
 
 function draw() {
@@ -74,15 +80,14 @@ function draw() {
     drawingContext.shadowColor = "rgba(0, 0, 0, 0.5)";
     image(logo, width - logoSize - 20, 20, logoSize, logoSize);
     drawingContext.shadowBlur = 0;
-    drawGradient(0, height - (height / 1.8), width, height / 1.8, color(255, 255, 255, 0), color(255, 255, 255));
 
-    drawGradient(0, height - (height / 3), width, height / 3, color(1, 61, 255, 0), color(1, 61, 255));
-
+    // Appliquer Gotham
+    textFont(gothamFont);
+    
     drawingContext.shadowBlur = 15;
     drawingContext.shadowColor = "rgba(0, 0, 0, 0.7)";
     fill(255);
     textSize(textSizeMain);
-    textFont("Gotham");
     textStyle(BOLD);
     textAlign(CENTER, CENTER);
     text(userText.toUpperCase(), textX, textY);
@@ -92,7 +97,6 @@ function draw() {
     drawingContext.shadowColor = "rgba(0, 0, 0, 0.7)";
     fill(1, 61, 255);
     textSize(textSizeSub);
-    textFont("Gotham");
     textStyle(BOLD);
     textAlign(CENTER, CENTER);
     text(userSubText.toUpperCase(), textX, subTextY);
@@ -126,6 +130,7 @@ function drawGradient(x, y, w, h, c1, c2) {
         line(x, y + i, x + w, y + i);
     }
 }
+
 
 document.getElementById("exportButton").addEventListener("click", () => {
     saveCanvas("miniature", "jpg");
