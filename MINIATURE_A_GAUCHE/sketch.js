@@ -55,6 +55,7 @@ function setup() {
 function draw() {
     background(200);
 
+
     if (bgImage) {
         let imgRatio = bgImage.width / bgImage.height;
         let canvasRatio = width / height;
@@ -96,14 +97,33 @@ function draw() {
     text(userText.toUpperCase(), textX, textY);
     drawingContext.shadowBlur = 0;
 
-    drawingContext.shadowBlur = 15;
-    drawingContext.shadowColor = "rgba(0, 0, 0, 0.7)";
+    drawingContext.shadowBlur = 30; 
+    drawingContext.shadowColor = "rgba(255, 255, 255, 0.95)"; // Blanc presque opaque
     fill(1, 61, 255);
     textSize(textSizeSub);
     textStyle(BOLD);
     textAlign(CENTER, CENTER);
     text(userSubText.toUpperCase(), textX, subTextY);
     drawingContext.shadowBlur = 0;
+    drawingContext.shadowBlur = 30; 
+    drawingContext.shadowColor = "rgba(255, 255, 255, 0.95)"; // Blanc presque opaque
+    fill(1, 61, 255);
+    textSize(textSizeSub);
+    textStyle(BOLD);
+    textAlign(CENTER, CENTER);
+    text(userSubText.toUpperCase(), textX, subTextY);
+    drawingContext.shadowBlur = 0;
+    drawingContext.shadowBlur = 30; 
+    drawingContext.shadowColor = "rgba(255, 255, 255, 0.95)"; // Blanc presque opaque
+    fill(1, 61, 255);
+    textSize(textSizeSub);
+    textStyle(BOLD);
+    textAlign(CENTER, CENTER);
+    text(userSubText.toUpperCase(), textX, subTextY);
+    drawingContext.shadowBlur = 0;
+    drawingContext.shadowBlur = 30; 
+    drawingContext.shadowColor = "rgba(255, 255, 255, 0.95)"; // Blanc presque opaque
+
 }
 
 
