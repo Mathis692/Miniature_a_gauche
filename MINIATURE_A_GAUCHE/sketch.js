@@ -54,7 +54,7 @@ function setup() {
 
 function draw() {
     background(200);
-    
+
     if (bgImage) {
         let imgRatio = bgImage.width / bgImage.height;
         let canvasRatio = width / height;
@@ -74,16 +74,19 @@ function draw() {
 
         image(bgImage, xOffset, yOffset, drawWidth, drawHeight);
     }
-    
+
     let logoSize = 150;
     drawingContext.shadowBlur = 20;
     drawingContext.shadowColor = "rgba(0, 0, 0, 0.5)";
     image(logo, width - logoSize - 20, 20, logoSize, logoSize);
     drawingContext.shadowBlur = 0;
 
-    // Appliquer Gotham
+    // Ajout des dégradés
+    drawGradient(0, height - (height / 1.8), width, height / 1.8, color(255, 255, 255, 0), color(255, 255, 255)); 
+    drawGradient(0, height - (height / 3), width, height / 3, color(1, 61, 255, 0), color(1, 61, 255));
+
     textFont(gothamFont);
-    
+
     drawingContext.shadowBlur = 15;
     drawingContext.shadowColor = "rgba(0, 0, 0, 0.7)";
     fill(255);
@@ -92,7 +95,7 @@ function draw() {
     textAlign(CENTER, CENTER);
     text(userText.toUpperCase(), textX, textY);
     drawingContext.shadowBlur = 0;
-    
+
     drawingContext.shadowBlur = 15;
     drawingContext.shadowColor = "rgba(0, 0, 0, 0.7)";
     fill(1, 61, 255);
@@ -102,6 +105,7 @@ function draw() {
     text(userSubText.toUpperCase(), textX, subTextY);
     drawingContext.shadowBlur = 0;
 }
+
 
 function updateText(event) {
     userText = event.target.value;
